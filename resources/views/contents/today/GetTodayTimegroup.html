@@ -1,0 +1,33 @@
+<div class="row mb-2">
+    {{ range .Data }}
+    <div class="col-12 mb-3">
+        <div class="card">
+            <div class="card-body">  
+                <div class="row"> 
+                    <div class="col-1"> 
+                        1
+                    </div>
+                    <div class="col-2"> 
+                        {{ .Yeary }}-{{ .Monthy }}-{{ .Dayy }}
+                    </div>
+                    <div class="col-7"> 
+                        <abbr class="initialism">
+                            {{ .Houry }}:{{ .Minutey }}
+                        </abbr>
+                    </div> 
+                    <div class="col-1 text-center">   
+                        {{ .Counter }}
+                    </div> 
+                    <div class="col-1"> 
+                        <a    
+                            href="/Today/time/{{ .Yeary }}/{{ .Monthy }}/{{ .Dayy }}/{{ .Houry }}/{{ .Minutey }}"
+                            class=" "> 
+                            View
+                        </a> 
+                    </div>
+                </div> 
+            </div>  
+        </div>
+    </div>
+    {{ end }}
+</div>

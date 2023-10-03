@@ -1,0 +1,21 @@
+{{ if eq .LeagueTeam.BookmakersapiID "8" }} 
+    <span class="badge bg-success" >
+        {{ .LeagueTeam.BookmakersName }}
+    </span> 
+{{ else if eq .LeagueTeam.BookmakersapiID "11" }} 
+    <span class="badge bg-primary" >
+        {{ .LeagueTeam.BookmakersName }}
+    </span> 
+{{ else if eq .LeagueTeam.BookmakersapiID "2" }} 
+    <span class="badge bg-danger" >
+        {{ .LeagueTeam.BookmakersName }}
+    </span> 
+{{ else if eq .LeagueTeam.BookmakersapiID "28" }} 
+    <span class="badge bg-warning" >
+        {{ .LeagueTeam.BookmakersName }}
+    </span> 
+{{ else }} 
+    <span class="badge bg-dark" >
+        Zonk
+    </span> 
+{{ end }}

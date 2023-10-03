@@ -1,0 +1,73 @@
+<div class="row mb-4">
+    <div class="col-12 text-center">
+        <div class="btn-group">
+            <a
+                href="/MatchFinished"
+                class="btn btn-sm btn-secondary">
+                <i class="fas fa-trophy"></i>
+                League
+            </a>
+            <a
+                href="/MatchFinished/Timegroup"
+                class="btn btn-sm btn-secondary">
+                <i class="fas fa-hourglass-half"></i>
+                Time
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="row mb-2">
+    {{range .Data}} 
+    <div class="col-12 mb-3">
+        <div class="card">
+            <div class="card-body">
+                <div class="row"> 
+                    <div class="col-2">
+                        <i class="flag-icon flag-icon-{{ .LeagueTeam.CountryTeam.Code }} "
+                            title="{{ .LeagueTeam.CountryTeam.Code }}"
+                            id="{{ .LeagueTeam.CountryTeam.Code }}"></i>
+                        <a
+                            href="/Countries/{{ .LeagueTeam.CountryName }}"
+                            class="btn btn-link">
+                            {{ .LeagueTeam.CountryName }}
+                        </a>
+                    </div>
+                    <div class="col-1">
+                        <img src="{{ .LeagueTeam.Logo }}" alt="" width="40px"> 
+                    </div>
+                    <div class="col-4">
+                        <abbr class="initialism">
+                            #{{ .LeagueapiID }}
+                        </abbr> 
+                        <a
+                            href="/Leagues/notstarted/{{ .LeagueapiID }}/{{ .Season }}"
+                            class="btn btn-link">
+                            {{ .LeagueTeam.Name }}
+                        </a>
+                    </div>
+                    <div class="col-1 ">
+                        {{ .Season }}
+                    </div>
+                    <div class="col-1 text-center">
+                        {{template "components/bookmakers" .}}
+                    </div>
+                    <div class="col-1 text-center">
+                        <i class="{{ .LeagueTeam.Star }}"></i> 
+                    </div>
+                    <div class="col-1 text-center">
+                        {{ .Counter }}
+                    </div>
+                    <div class="col-1  text-center">
+                        <a
+                            href="/MatchFinished/League/{{ .LeagueapiID }}/{{ .Season }}"
+                            class=" ">
+                            View
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{end}}
+</div>

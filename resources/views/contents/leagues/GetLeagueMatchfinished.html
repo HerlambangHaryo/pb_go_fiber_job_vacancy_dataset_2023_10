@@ -1,0 +1,50 @@
+{{template "includes/sub_menu/leagues" .}}
+
+<div id="datatable" class="mb-5">
+    <div class="card">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-6">
+                    Data matchfinished
+                </div>
+                <div class="col-6 text-end">  
+                </div>
+            </div>
+        </div>
+        <div class="card-body">       
+            <table id="datatableDefault" class="table  ">
+                <thead class=" ">
+                    <tr>               
+                        <th class="text-center">Round</th> 
+                        <th class="text-center">League</th>  
+                        <th class="text-center">Season</th>  
+                        <th class="text-center" width="15%">Action</th> 
+                    </tr>
+                </thead>
+                <tbody>   
+                    {{ range .Data }}
+                    <tr>
+                        <td class="text-center"> 
+                            {{ .Round }}  
+                        </td>  
+                        <td class="text-center"> 
+                            {{ .LeagueapiID }}  
+                        </td>  
+                        <td class="text-center">  
+                            {{ .Season }}  
+                        </td>   
+                        <td class="text-center"> 
+                            <a  
+                                href="/Leagues/Detailround/{{ .LeagueapiID }}/{{ .Season }}/{{ .RoundUS }}" 
+                                class=" 
+                                ">
+                                View
+                            </a>    
+                        </td>  
+                    </tr>    
+                    {{ end }}
+                </tbody>
+            </table> 
+        </div>            
+    </div>
+</div>

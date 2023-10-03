@@ -1,0 +1,69 @@
+<div id="datatable" class="mb-5">
+	<div class="card">
+		<div class="card-header">
+			Data {{ .Title }}
+		</div>
+		<div class="card-body">  
+			<table id="datatableDefault" class="table ">
+				<thead class=" ">
+					<tr>
+						<th class="text-center" width="10%">
+							No.
+						</th> 
+						<th class="text-center" >
+							Account
+						</th> 
+						<th class="text-center" width="10%">
+							Active
+						</th> 
+						<th class="text-center" width="10%">
+							Counter
+						</th> 
+						<th class="text-center">
+							Active
+						</th> 
+						<th class="text-center">
+							Updated At
+						</th> 
+					</tr>
+				</thead>
+				<tbody>
+					{{range .Data}} 
+					<tr>
+						<td class="text-center">
+							{{ .ID }}
+						</td> 
+						<td class="text-center">
+							{{ .Account }}
+						</td> 
+						<td class="text-center">  
+							{{ if eq .Active "1" }} 
+								<span class="badge bg-success" >
+									<i class="fa-solid fa-toggle-on"></i>
+								</span>  
+							{{ end }} 
+						</td> 
+						<td class="text-center"> 
+							{{ .Counter }}
+						</td> 
+						<td class="text-center"> 
+							<a href="/Rapidapi/on/{{ .ID }}"
+								class="btn btn-default btn-sm" >
+								On
+							</a>
+							<a href="/Rapidapi/reset/{{ .ID }}"
+								class="btn btn-default btn-sm" >
+								Reset
+							</a>
+						</td> 
+						<td class="text-center">  
+							{{ .UpdatedAtDIFF }} 
+							  
+						</td> 
+					</tr> 
+					{{end}}
+				</tbody>
+			</table> 
+		</div>
+	</div>
+</div>

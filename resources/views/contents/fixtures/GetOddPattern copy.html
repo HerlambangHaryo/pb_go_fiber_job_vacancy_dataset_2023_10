@@ -1,0 +1,116 @@
+{{template "includes/sub_menu/fixtures_odd" .}}
+
+{{template "includes/sub_menu/pattern_from" .}}
+
+<div id="datatable" class="mt-3 mb-5">
+    <div class="card">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-2">
+                    Pre-Pre  
+                </div>
+                <div class="col-2"> 
+                    <a href="">
+                        Its Prank
+                     </a>
+                </div> 
+                <div class="col-2"> 
+                    <a href="">
+                        Its Set
+                     </a>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div>
+                <table id="datatableDefault" class="table  ">
+                    <thead class=" ">
+                        <tr>
+                            <th class="text-center" width="10%">No.</th>
+                            <th class="text-center">Date</th>
+                            <th class="text-center">Leagues</th>
+                            <th class="text-center">Teams</th>
+                            <th class="text-center">Goals</th>
+                            <th class="text-center">1st</th>
+                            <th class="text-center">2nd</th>
+                            <th class="text-center">Pre</th>
+                            <th class="text-center">End</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{ range .Data2 }} 
+                        <tr class=""> 
+                            <td class="text-left">   
+                                <span class="badge bg-gray-900 mt-2 ">
+                                    {{ .FixtureTeam.FixtureAPIID }}
+                                </span>
+                            </td>
+                            <td>
+                                <abbr class="initialism">
+                                    {{ .Tanggal }}  
+                                    {{ .Jam }}  
+                                </abbr>
+                                <br/>
+                                <span class="badge bg-gray-800 mt-2 ">
+                                    {{ .FixtureTeam.Round }}  
+                                </span>
+                            </td>
+                            <td>
+                                <a
+                                    class=" ">
+                                    {{ .FixtureTeam.HomeTeam.Name }}
+                                </a>
+                                <br/>
+                                <a
+                                    class=" ">
+                                    {{ .FixtureTeam.AwayTeam.Name }}
+                                </a>
+                                <br/>
+                                <a  href="https://www.google.com/search?client=firefox-b-d&amp;q=+vs++flashscore" 
+                                    class="badge bg-dark mt-2" target="_blank" >   
+                                    {{ .FixtureTeam.FixtureStatus }}  
+                                </a>  
+                            </td>
+                            <td class="text-center">
+                                {{ .FixtureTeam.GoalsHome }}
+                                <br/>
+                                {{ .FixtureTeam.GoalsAway }}
+                            </td>
+                            <td class="text-center">
+                                {{ .FixtureTeam.ScoreHalftimeHome }}
+                                <br/>
+                                {{ .FixtureTeam.ScoreHalftimeAway }}
+                            </td>
+                            <td class="text-center">
+                                {{ .FixtureTeam.ScoreSecondtimeHome }}
+                                <br/>
+                                {{ .FixtureTeam.ScoreSecondtimeAway }}
+                            </td>
+                            <td>
+                                <span class="badge bg-gray-900">
+                                    {{ .PreAhPattern }}
+                                </span>
+                                <br/>
+                                <span class="badge bg-gray-900">
+                                    {{ .PreGouPattern }}
+                                </span>
+                            </td>
+                            <td>
+                                <span class="badge bg-gray-900">
+                                    {{ .EndAhPattern }}
+                                </span>
+                                <br/>
+                                <span class="badge bg-gray-900">
+                                    {{ .EndGouPattern }}
+                                </span>
+                            </td>
+                        </tr> 
+                        {{ end }} 
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+

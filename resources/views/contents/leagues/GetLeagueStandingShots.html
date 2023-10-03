@@ -1,0 +1,88 @@
+{{template "includes/sub_menu/leagues" .}}
+
+<div id="datatable" class="mb-5">
+    <div class="card">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-6">
+                    Data Standing
+                </div>
+                <div class="col-6 text-end"> 
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div>
+                <table id="datatableDefault" class="table  ">
+                    <thead class=" ">
+                        <tr>
+                            <th class="text-center" width="10%">R</th>                                
+                            <th class="text-center">Logo</th>                                
+                            <th class="text-center">Teams</th>                                
+                            <th class="text-center">MP</th>                                
+                            <th class="text-center">Total</th>                                
+                            <th class="text-center">Min</th>                                
+                            <th class="text-center">Avg</th>                                
+                            <th class="text-center">Max</th>
+                        </tr> 
+                    </thead>
+                    <tbody>
+
+
+                        {{ range .Data }}
+                            <tr>
+                                <td class="text-center">
+                                    <small>
+                                    {{ .Rank  }}
+                                    </small>
+                                </td>
+                                <td class="text-center">
+                                    <img src="{{ .Team.Logo }}" alt="" width="40px">
+                                </td>
+                                <td class="text-center">
+
+                                    <a
+                                        href=""
+                                        class=" ">
+                                        <small>
+                                            {{ .Team.Name }}
+                                        </small>
+                                    </a>
+                                    <br/>
+                                    <small>
+                                        {{ .LongForm }}
+                                    </small>
+                                </td>
+                                <td class="text-center">
+                                    <small>
+                                        {{ .Played }}
+                                    </small>
+                                </td>
+                                <td class="text-center">
+                                    <small>
+                                    {{ .TotalShotsTotal }}
+                                    </small>
+                                </td>
+                                <td class="text-center">
+                                    <small>
+                                    {{ .TotalShotsMin }}
+                                    </small>
+                                </td>
+                                <td class="text-center">
+                                    <small>
+                                    {{ .TotalShotsAvg }}
+                                    </small>
+                                </td>
+                                <td class="text-center">
+                                    <small>
+                                    {{ .TotalShotsMax }}
+                                    </small>
+                                </td>
+                            </tr>
+                        {{ end }}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

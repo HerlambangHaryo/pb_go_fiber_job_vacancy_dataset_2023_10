@@ -1,0 +1,25 @@
+<div id="datatable" class="mb-5">
+	<div class="card">
+		<div class="card-header">
+			Data Today
+		</div>
+		<div class="card-body"> 
+			<table id="datatableDefault" class="table ">
+				<thead class=" ">
+					<tr>
+						<th class="text-center" width="10%">No.</th> 
+					</tr>
+				</thead>
+				<tbody>
+					{{range .Today}} 
+					<tr>
+						<td class="text-center">
+							{{ .ID }}
+						</td> 
+					</tr> 
+					{{end}}
+				</tbody>
+			</table> 
+		</div>
+	</div>
+</div>

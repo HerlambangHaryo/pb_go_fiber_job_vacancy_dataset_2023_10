@@ -1,0 +1,21 @@
+<div class="row mb-2">
+	
+	{{range .Countries}} 
+	<div class="col-2 mb-3">
+		<div class="card">
+			<div class="card-body"> 
+				<small>  
+					<i class="flag-icon flag-icon-{{ .Code }} " 
+						title="{{ .Code }}" 
+						id="{{ .Code }}"></i>
+					<a  href="/Countries/{{ .Name }}" 
+						class=" "> 
+						{{ .Name }}
+					</a>  
+				</small>
+			</div>  
+		</div>
+	</div>
+	{{end}}
+</div>
+ 

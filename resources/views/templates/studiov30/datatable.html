@@ -1,0 +1,38 @@
+<!DOCTYPE html> 
+<html 
+    lang="en" 
+    class="dark-mode">
+    <head>  
+        {{template "templates/studiov30/partials/head" .}}
+        {{template "templates/studiov30/partials/head_datatable" .}}
+    </head> 
+	<body class="dark-mode theme-yellow"> 
+        <!-- BEGIN #app -->
+        <div id="app" class="app">
+			{{template "templates/studiov30/partials/header" .}}
+			 
+			{{template "templates/studiov30/partials/sidebar" .}}
+            
+			<!-- BEGIN #content -->
+			<div id="content" class="app-content"> 
+				{{template "templates/studiov30/partials/breadcrumb" .}}
+ 
+				{{embed}}
+			</div>
+			<!-- END #content --> 
+             
+        </div>
+        <!-- END #app -->
+		<script>
+			function incrementValue() {
+			  var element = document.getElementById('counter');
+			  var value = parseInt(element.innerHTML);
+			  value++;
+			  element.innerHTML = value;
+			}
+		</script>
+		{{template "templates/studiov30/partials/script" .}}  
+        
+		{{template "templates/studiov30/partials/script_datatable" .}}  
+    </body>
+</html>

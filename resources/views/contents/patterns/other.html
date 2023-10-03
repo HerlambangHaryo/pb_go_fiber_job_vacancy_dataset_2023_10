@@ -1,0 +1,67 @@
+{{template "includes/sub_menu/fixtures" .}}
+ 
+<div id="datatable" class="mb-5">
+    <div class="card">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-6">
+                    Data Row
+                </div>
+                <div class="col-6 text-end"> 
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div>
+                <table id="datatableDefault" class="table  ">
+                    <thead class=" ">
+                        <tr>
+                            <th class="text-center" width="10%">Leagueapi ID</th>                                
+                            <th class="text-center">Ah</th>                                  
+                            <th class="text-center">Gou</th>                                  
+                            <th class="text-center">Counter</th>          
+                            <th class="text-center" width="10%">Action</th>     
+                        </tr> 
+                    </thead>
+                    <tbody>
+
+                        {{ range .Data2 }}
+                            <tr>
+                                <td class="text-center">
+                                    {{ .LeagueapiID  }} 
+                                </td> 
+                                <td class="text-center"> 
+                                    <span class="badge bg-gray-900"> 
+                                        {{ .PreAh }} 
+                                    </span> 
+                                    <br/>
+                                    <span class="badge bg-gray-900">
+                                        {{ .EndAh }} 
+                                    </span>
+                                </td> 
+                                <td class="text-center"> 
+                                    <span class="badge bg-gray-900"> 
+                                        {{ .PreGouPattern }} 
+                                    </span> 
+                                    <br/>
+                                    <span class="badge bg-gray-900">
+                                            {{ .EndGouPattern }} 
+                                        </span>
+                                    </span>  
+                                </td>  
+                                <td class="text-center"> 
+                                    {{ .Counter }} 
+                                </td> 
+                                <td class="text-center"> 
+                                    <a href="/Patterns/League/{{ .LeagueapiID }}/{{ .PreAh }}/{{ .PreGouPattern }}/{{ .EndAh }}/{{ .EndGouPattern }}" class=" ">
+                                        View
+                                    </a>
+                                </td> 
+                            </tr>
+                        {{ end }}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="row mb-2"> 
+    <div class="col-12 mb-3"> 
+    </div> 
+    <div class="col-12 mb-3"> 
+        {{if ne (len .Data3) 0}} 
+            Kosong
+        {{else}}
+            {{range .Data3}}   
+
+                {{ .LeagueapiID }}
+                {{ .MatchWinnerHomePerc }}  
+                {{ .MatchWinnerAwayPerc }}  
+            {{end}}
+            okay
+        {{end}}
+    </div> 
+</div> 

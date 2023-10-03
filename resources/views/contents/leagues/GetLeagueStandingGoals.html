@@ -1,0 +1,157 @@
+{{template "includes/sub_menu/leagues" .}}
+ 
+<div id="datatable" class="">
+    <div class="card">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-6">
+                    Data Standing
+                </div>
+                <div class="col-6 text-end">  
+                </div>
+            </div>
+        </div>
+        <div class="card-body">      
+            <div>
+                <table id="datatableDefault" class="table  ">
+                    <thead class=" ">
+                        <tr>               
+                            <th class="text-center" width="10%">R</th> 
+                            <th class="text-center">Logo</th>  
+                            <th class="text-center">Teams</th>  
+                            <th class="text-center">MP</th>  
+                            <th class="text-center">W</th>  
+                            <th class="text-center">D</th>  
+                            <th class="text-center">L</th>  
+                            <th class="text-center">G</th>  
+                            <th class="text-center">Gd</th>  
+                            <th class="text-center">PTS</th>   
+                            <th class="text-center">mp</th> 
+                            <th class="text-center">w</th> 
+                            <th class="text-center">d</th> 
+                            <th class="text-center">l</th> 
+                            <th class="text-center">g</th>  
+                        </tr>
+                    </thead>
+                    <tbody>   
+                        {{ range .Data }}
+                        <tr>
+                            <td class="text-center"> 
+                                <small>
+                                    {{ .Rank }}
+                                </small>
+                            </td> 
+                            <td class="text-center">  
+                                <img src="{{ .Team.Logo }}" alt="" width="40px"> 
+                            </td> 
+                            <td class="text-center">  
+                                    
+                                <a    
+                                    href="http://localhost/pr_laravel_8_buzz_2023_06/Teams/34"
+                                    class=" "> 
+                                    <small>
+                                        {{ .Team.Name }}
+                                    </small>
+                                </a> 
+                                <br/>
+                                <small> 
+                                    {{ .LongForm }}
+                                </small>
+                            </td> 
+                            <td class="text-center">   
+                                <small>
+                                    {{ .Played }}
+                                </small>
+                            </td>   
+                            <td class="text-center">  
+                                <small> 
+                                    {{ .Win }}
+                                </small>
+                            </td>   
+                            <td class="text-center">   
+                                <small>
+                                    {{ .Draw }}
+                                </small>
+                            </td>   
+                            <td class="text-center">   
+                                <small>
+                                    {{ .Lose }}
+                                </small>
+                            </td>   
+                            <td class="text-center">   
+                                <small>
+                                    {{ .GoalsFor }}:{{ .GoalsAgaints }}
+                                </small>
+                            </td>   
+                            <td class="text-center">   
+                                <small>
+                                    {{ .GoalsDiff }}
+                                </small>
+                            </td>   
+                            <td class="text-center">   
+                                <small>
+                                    {{ .Points }}
+                                </small>
+                            </td>  
+                            <td class="text-center">   
+                                <small>
+                                    {{ .HomePlayed }}
+                                </small>
+
+                                <hr/>
+
+                                <small>
+                                    {{ .AwayPlayed }}
+                                </small>
+                            </td>   
+                            <td class="text-center">  
+                                <small>
+                                    {{ .HomeWin }}
+                                </small>
+
+                                <hr/>
+
+                                <small>
+                                    {{ .AwayWin }}
+                                </small>
+                            </td>   
+                            <td class="text-center">   
+                                <small>
+                                    {{ .HomeDraw }}
+                                </small>
+
+                                <hr/>
+                                <small>
+                                    {{ .AwayDraw }}
+                                </small>
+
+                            </td>   
+                            <td class="text-center">   
+                                <small>
+                                    {{ .HomeLose }}
+                                </small>
+
+                                <hr/>
+                                <small>
+                                    {{ .AwayLose }}
+                                </small>
+                                
+                            </td>   
+                            <td class="text-center">   
+                                <small> 
+                                    {{ .HomeGoalsFor }}:{{ .HomeGoalsAgaints }}
+                                </small>
+
+                                <hr/>
+                                <small>
+                                    {{ .AwayGoalsFor }}:{{ .AwayGoalsAgaints }}
+                                </small> 
+                            </td>   
+                        </tr>    
+                        {{ end }}
+                    </tbody>
+                </table>   
+            </div>
+        </div>            
+    </div>
+</div> 

@@ -1,0 +1,224 @@
+
+<div class="row mb-2">
+    <div class="col-12 mb-3">
+        <div class="card border-0 text-white overflow-hidden"  style="max-height: 400px" >
+            {{ range .Data }} 
+            {{template "components/fixtures_card_img" .}}
+
+            <div class="card-img-overlay d-flex flex-column bg-gray-900 bg-opacity-70 rounded">
+
+                <div class="row d-flex justify-content-center mt-4 ">
+                    <div class="btn-group col-10 text-center justify-content-center ">
+                        <a
+                            href="/Leagues/matchfinished/{{ .LeagueapiID }}/{{ .Season }}"
+                            class="p-2 rounded
+                                                ">
+                            League
+                        </a>
+                        <a
+                            href="/Fixtures/Information/{{ .LeagueapiID }}/{{ .Season }}/{{ .FixtureAPIID}}"
+                            class="p-2 rounded
+                                                    text-black
+                                                ">
+                            Information
+                        </a>
+                        <a
+                            href="/Fixtures/Odd/{{ .LeagueapiID }}/{{ .Season }}/{{ .FixtureAPIID}}"
+                            class="p-2 rounded
+                                                    text-black
+                                                ">
+                            Odd
+                        </a>
+                        <a
+                            href="/Fixtures/statistics/{{ .LeagueapiID }}/{{ .Season }}/{{ .FixtureAPIID}}"
+                            class="p-2 rounded
+                                                ">
+                            Statistics
+                        </a>
+                        <a
+                            href="/Fixtures/headtohead/{{ .LeagueapiID }}/{{ .Season }}/{{ .FixtureAPIID}}"
+                            class="p-2 rounded
+                                                ">
+                            Head 2 Head
+                        </a>
+                        <a
+                            href="/Fixtures/players/{{ .LeagueapiID }}/{{ .Season }}/{{ .FixtureAPIID}}"
+                            class="p-2 rounded
+                                                ">
+                            Players
+                        </a>
+                    </div>
+                </div>
+ 
+                <div class="row d-flex justify-content-center mb-4">
+                    <div class="btn-group col-10 text-center justify-content-center ">
+                        <a
+                            href="/Fixtures/OnlyPre/{{ .LeagueapiID }}/{{ .Season }}/{{ .FixtureAPIID}}"
+                            class="p-2 rounded
+                                                ">
+                            Only Pre
+                        </a>
+                        <a
+                            href="/Fixtures/PrePre/{{ .LeagueapiID }}/{{ .Season }}/{{ .FixtureAPIID}}"
+                            class="p-2 rounded
+                                                ">
+                            Pre Pre
+                        </a>
+                        <a
+                            href="/Fixtures/OnlyEnd/{{ .LeagueapiID }}/{{ .Season }}/{{ .FixtureAPIID}}"
+                            class="p-2 rounded
+                                                ">
+                            Only End
+                        </a>
+                        <a
+                            href="/Fixtures/PreEnd/{{ .LeagueapiID }}/{{ .Season }}/{{ .FixtureAPIID}}"
+                            class="p-2 rounded
+                                                ">
+                            Pre End
+                        </a>
+                    </div>
+                </div>
+
+                <div class="row d-flex justify-content-center mb-2">
+                    <div class="col-1">
+                        <div class="bg-gradient-white w-45px h-45px rounded-3 d-flex align-items-center justify-content-center">
+                            <img src="{{ .HomeTeam.Logo }}" alt="" class="ms-100 mh-100">
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <br/>
+                        <a
+                            class=" "> 
+                            {{ .HomeTeam.Name }} 
+                        </a>
+                        <br/>
+                        
+                        <br/>
+                        <br/>
+                        <h1 class="text-yellow">
+                            {{ .GoalsHome }}
+                        </h1>
+                        {{ .ScoreHalftimeHome }}
+                        <br/>
+                        {{ .ScoreSecondtimeHome }}
+                        
+                    </div>
+                    <div class="col-2 text-center">
+                        <br/>
+                        <br/>
+                        <small>
+                            <a
+                                class=" ">
+                                {{ .VenueTeam.Name }}
+                            </a> 
+
+                            {{ .VenueTeam.City }} - {{ .LeagueTeam.CountryName}}, 
+
+                            <br/>
+                            
+                            <br/>
+                            <span class="badge bg-gray-800 ">
+                                {{ .FixtureAPIID }}
+                            </span>
+
+                            <span class="badge bg-gray-800 ">
+                                {{ .Round }}
+                            </span>
+
+                            <br/>
+
+                            <a  href="https://www.google.com/search?client=firefox-b-d&amp;q={{ .HomeTeam.Name }}+vs+{{ .AwayTeam.Name }}+flashscore" 
+                                class="badge bg-warning mt-2" target="_blank" >  
+                                
+                                {{ .FixtureStatus }}
+                            </a>  
+
+                            <a
+                                href="/Fixtures/setoneye/164096"
+                                class=" ">
+                                On Eye
+                            </a>
+                                
+                            <a
+                                href="/Fixtures/setone/221347">
+                                One
+                            </a>
+                        </small>
+                    </div>
+
+                    <div class="col-2 text-end">
+                        <br/>
+                        <a
+                            class=" ">
+                            {{ .AwayTeam.Name }}
+                        </a>
+                        <br/>
+                        
+                        <br/>
+                        <br/> 
+
+                        <h1 class="text-yellow">
+                            {{ .GoalsAway }}
+                        </h1>
+                        {{ .ScoreHalftimeAway }}
+                        <br/>
+                        {{ .ScoreSecondtimeAway }}
+                    </div>
+
+                    <div class="col-1 d-flex justify-content-end">
+                        <div class="bg-gradient-white w-45px h-45px rounded-3 d-flex justify-content-end">
+                            <img src="{{ .AwayTeam.Logo }}" alt="" class="ms-100 mh-100">
+                        </div>
+                    </div>
+                </div>
+ 
+                <div class="row d-flex justify-content-center text-center mt-1">
+ 
+
+                    <div class="col-2 mt-1">
+                        <span class="badge bg-gray-900"> 
+                            {{ .OddTeam.PreAhPattern }} 
+                        </span>
+                        <br/>
+                        <span class="badge bg-gray-900"> 
+                            {{ .OddTeam.PreGouPattern }} 
+                        </span>
+                    </div>
+                    <div class="col-2 mt-1">
+                        <span class="badge bg-gray-800">
+                            {{ .OddTeam.PreAhPattern4 }} 
+                        </span>
+                        <br/>
+                        <span class="badge bg-gray-800">
+                            {{ .OddTeam.PreGouPattern4 }} 
+                        </span>
+                    </div>
+                    <div class="col-2  mt-1">
+                    </div>
+                    <div class="col-2  mt-1">
+                        <span class="badge bg-gray-900">
+                            {{ .OddTeam.EndAhPattern }} 
+                        </span>
+                        <br/>
+                        <span class="badge bg-gray-900">
+                            {{ .OddTeam.EndGouPattern }}  
+                        </span>
+                    </div>
+                    <div class="col-2  mt-1">
+                        <span class="badge bg-gray-800">
+                            {{ .OddTeam.EndAhPattern4 }} 
+                        </span>
+                        <br/>
+                        <span class="badge bg-gray-800">
+                            {{ .OddTeam.EndGouPattern4 }}   
+                        </span>
+                    </div>
+                </div> 
+
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</div>
+
+ 

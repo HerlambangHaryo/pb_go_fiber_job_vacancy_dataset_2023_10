@@ -1,0 +1,16 @@
+# air.toml
+
+# Menjalankan server utama
+[build]
+cmd = "main.go"
+
+# Mengawasi perubahan dalam direktori
+[build.watch]
+paths = ["."]
+
+# Mengatur waktu penundaan sebelum restart
+delay = "1s"
+
+# Menjalankan perintah setelah server restart (opsional)
+[build.exec]
+binary = "./main"
