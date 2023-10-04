@@ -1,0 +1,56 @@
+<div id="datatable" class="mb-5">
+    <div class="card">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-6">
+                    Dataset Jobtitle
+                </div>
+                <div class="col-6 text-end"> 
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div>
+                <table id="datatableDefault" class="table  ">
+                    <thead class=" ">
+                        <tr>                                                  
+                            <th class="text-center" width="10%">ID</th>          
+                            <th class="text-center">Nama</th>          
+                            <th class="text-center">Name</th>        
+                            <th class="text-center">Wild Id</th>         
+                            <th class="text-center">Wild En</th>       
+                        </tr> 
+                    </thead>
+                    <tbody>
+
+                        {{ range .Data }}
+                            <tr>
+                                <td class="text-center"> 
+                                    {{ .ID  }} 
+                                </td>
+                                <td class="text-center">  
+                                    <a  href="/Jobtitle/Wildcard/{{ .ReplaceNama }}" 
+                                        class=" ">   
+                                        {{ .Nama  }} 
+                                    </a>   
+                                </td>
+                                <td class="text-center"> 
+                                    <a  href="/Jobtitle/Wildcard/{{ .ReplaceName }}" 
+                                        class=" ">   
+                                        {{ .Name  }} 
+                                    </a>   
+                                </td> 
+                                <td class="text-center"> 
+                                    {{ .WildcardId  }} 
+                                </td>
+                                <td class="text-center"> 
+                                    {{ .WildcardEn  }} 
+                                </td>
+                            </tr>
+                        {{ end }}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

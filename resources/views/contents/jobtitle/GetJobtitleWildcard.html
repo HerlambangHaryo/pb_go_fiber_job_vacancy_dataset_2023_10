@@ -1,0 +1,78 @@
+<div class="row mb-4">
+    <div class="col-12 text-center">
+        <div class="btn-group">
+            <a
+                href="/DatasetJobtitle"
+                class="btn btn-sm btn-secondary">  
+                Dataset Jobtitle  
+            </a>  
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12"> 
+        <div class="card mb-3 overflow-hidden fs-13px border-0 bg-gradient-custom-teal"  > 
+            <div class="card-body position-relative"> 
+                <h5 class="text-white text-opacity-80 mb-3 fs-16px">Job Title Done</h5>
+                <h3 class="text-white mt-n1">{{ .persentase }}</h3> 
+                <div class="progress bg-black bg-opacity-50 "  >
+                    <div class="progress-bar progress-bar-striped bg-white" style="width: {{ .persentase }}%"></div>
+                </div> 
+            </div>
+        </div> 
+    </div>
+</div>
+
+<div id="datatable" class="mb-5">
+    <div class="card">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-6">
+                    Data Jobtitle
+                </div>
+                <div class="col-6 text-end"> 
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div>
+                <table id="datatableDefault" class="table  ">
+                    <thead class=" ">
+                        <tr>                                                  
+                            <th class="text-center">Counter</th>          
+                            <th class="text-center">Name</th>              
+                            <th class="text-center">Id</th>         
+                            <th class="text-center">En</th>         
+                        </tr> 
+                    </thead>
+                    <tbody>
+
+                        {{ range .Data }}
+                            <tr>
+                                <td class="text-center"> 
+                                    {{ .Counter  }} 
+                                </td>
+                                <td class="text-center"> 
+                                    {{ .Name  }} 
+                                </td>
+                                <td class="text-center">  
+                                    <a  href="/DatasetJobtitle/createId/{{ .ReplaceName }}" 
+                                        class=" ">   
+                                        {{ .Name }}  
+                                    </a>   
+                                </td>
+                                <td class="text-center"> 
+                                    <a  href="/DatasetJobtitle/createEn/{{ .ReplaceName }}" 
+                                        class=" ">   
+                                        {{ .Name }}  
+                                    </a>   
+                                </td>
+                            </tr>
+                        {{ end }}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

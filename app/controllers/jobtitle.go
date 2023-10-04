@@ -3,37 +3,61 @@ package controllers
 	import (
 		"github.com/gofiber/fiber/v2"
 		"github.com/HerlambangHaryo/pb_go_fiber_job_vacancy_dataset_2023_10/app/models" 
-		"strconv" 
+		// "strconv" 
+		"strings" 
 	) 
 	
-	func GetFixtureInformation(c *fiber.Ctx) error {
+	func GetJobtitle(c *fiber.Ctx) error { 
+		// --------------------------------------------------------------   
+			var persentase string
+		// --------------------------------------------------------------   
+			b 		:= new(models.Jobtitle)
 		// --------------------------------------------------------------
-			leagueapi_id := c.Params("leagueapi_id")
-			season := c.Params("season")
-			fixtureapi_id := c.Params("fixtureapi_id")
-	
-			leagueapi_idInt, err 	:= strconv.Atoi(leagueapi_id)
-			seasonInt, err 			:= strconv.Atoi(season)
-			fixtureapi_idInt, err 	:= strconv.Atoi(fixtureapi_id)
+			data, err := b.GetJobtitle() 
 
 			if err != nil {
 				return c.Status(500).SendString(err.Error())
 			}
-		// -------------------------------------------------------------- 
-			b 		:= new(models.FootballFixture)
 		// --------------------------------------------------------------
-			data, err := b.GetFixtureGeneral(uint(leagueapi_idInt), 
-						uint(seasonInt), 
-						uint(fixtureapi_idInt)) 
+			data2, err := b.GetJobtitlePercentage() 
 
 			if err != nil {
-			return c.Status(500).SendString(err.Error())
+				return c.Status(500).SendString(err.Error())
+			}  
+			
+			if len(data2) > 0 { 
+				persentase 		= data2[0].Percentage 
+			} else { 
+				persentase 		= "" 
 			}
 		// --------------------------------------------------------------
-			return c.Render("contents/fixtures/GetFixtureInformation", fiber.Map{
-				"Title": "League Not Started",
-				"Content": "Fixtures",
-				"Data"	: data,    
+			return c.Render("contents/jobtitle/GetJobtitle", fiber.Map{
+				"Title": "Jobtitle",
+				"Content": "Jobtitle",
+				"Data"	: data,      
+				"Data2"	: data2,  
+				"persentase": persentase,    
+			},"templates/studiov30/datatable")
+		// --------------------------------------------------------------
+	}
+	
+	func GetJobtitleWildcard(c *fiber.Ctx) error { 
+		// --------------------------------------------------------------   
+			name 			:= c.Params("val")
+			replacedName 	:= strings.Replace(name, "_", " ", -1)  
+		// --------------------------------------------------------------   
+			b 		:= new(models.Jobtitle)
+		// --------------------------------------------------------------
+			data, err := b.GetJobtitleWildcard(replacedName) 
+
+			if err != nil {
+				return c.Status(500).SendString(err.Error())
+			} 
+		// --------------------------------------------------------------
+			return c.Render("contents/jobtitle/GetJobtitleWildcard", fiber.Map{
+				"Title": "Jobtitle",
+				"Content": "Jobtitle",
+				"Data"	: data,       
 			},"templates/studiov30/datatable")
 		// --------------------------------------------------------------
 	}
