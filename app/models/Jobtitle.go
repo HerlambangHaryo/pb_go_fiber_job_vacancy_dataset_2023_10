@@ -70,23 +70,7 @@ package models
         return db.Model(&Jobtitle{}).
             Where("name = ?", name).
             Update("jobtitle_id", newJobtitleID).Error
-    }
-
-    // func (j *Jobtitle) UpdateJobtitle(name string, columnName string, newValue interface{}) error {
-    //     // Find the job title with the given name
-    //     err := database.DB.Where("name = ?", name).First(j).Error
-    //     if err != nil {
-    //         return err
-    //     }
-    
-    //     // Update the specified column with the new value
-    //     err = database.DB.Model(j).Update(columnName, newValue).Error
-    //     if err != nil {
-    //         return err
-    //     }
-    
-    //     return nil
-    // }
+    } 
 
     func (j *Jobtitle) UpdateJobtitle(name string, columnName string, newValue interface{}) error {
         // Find all job titles with the given name
@@ -105,28 +89,4 @@ package models
         }
     
         return nil
-    }
-    
-    
-     
-    // func (j *Jobtitle) UpdateJobtitle(newJobtitleID uint, name string) error {
-    //     if err := database.DB.Model(&Jobtitle{}).
-    //             Update("jobtitle_id", newJobtitleID).
-    //             Where("name = ?", name).Error; err != nil {
-    //         return err
-    //     }
-    //     return nil
-    // }
-    
-    
-    // func (b *FootballFixture) UpdateSingleColumnByID(id uint, columnName string, newValue interface{}) error {
-    //     if err := database.DB.First(b, id).Error; err != nil {
-    //         return err
-    //     }
-    
-    //     if err := database.DB.Model(b).Update(columnName, newValue).Error; err != nil {
-    //         return err
-    //     }
-    
-    //     return nil
-    // }
+    } 

@@ -4,7 +4,7 @@ package controllers
 		"github.com/gofiber/fiber/v2"
 		"github.com/HerlambangHaryo/pb_go_fiber_job_vacancy_dataset_2023_10/app/models" 
 		// "strconv" 
-		"strings" 
+		"strings"  
 	) 
   
 	func GetDatasetJobtitle(c *fiber.Ctx) error {
@@ -28,20 +28,18 @@ package controllers
 	func CreateDatasetJobtitleId(c *fiber.Ctx) error {
 		// --------------------------------------------------------------   
 			var idx uint
-		// --------------------------------------------------------------    
-			name := c.Params("val")
-			replacedName := strings.Replace(name, "_", " ", -1) 
+		// --------------------------------------------------------------     
+			name 			:= c.Params("val")
+			replacedName 	:= strings.Replace(name, "_", " ", -1) 
 		// --------------------------------------------------------------    
 			djt := &models.DatasetJobtitle{}
 			jt 	:= &models.Jobtitle{}
 		// --------------------------------------------------------------   
-			data := &models.DatasetJobtitle{
-				Nama: replacedName, 
-			}
-
-			if err := djt.Create(data); err != nil {
-				return c.Status(fiber.StatusInternalServerError).SendString(err.Error())
-			}
+			err := djt.InsertNama(replacedName)
+			
+			if err != nil {
+				return c.Status(500).SendString(err.Error())
+			}   
 		// --------------------------------------------------------------
 			data2, err := djt.GetDatasetJobtitleByNameId(replacedName) 
 
@@ -90,13 +88,11 @@ package controllers
 			djt := &models.DatasetJobtitle{}
 			jt 	:= &models.Jobtitle{}
 		// --------------------------------------------------------------   
-			data := &models.DatasetJobtitle{
-				Name: replacedName, 
-			}
-
-			if err := djt.Create(data); err != nil {
-				return c.Status(fiber.StatusInternalServerError).SendString(err.Error())
-			}
+			err := djt.InsertName(replacedName)
+			
+			if err != nil {
+				return c.Status(500).SendString(err.Error())
+			}   
 		// --------------------------------------------------------------
 			data2, err := djt.GetDatasetJobtitleByNameEn(replacedName) 
 

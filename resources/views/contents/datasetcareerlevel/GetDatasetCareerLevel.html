@@ -1,0 +1,38 @@
+<div id="datatable" class="mb-5">
+    <div class="card">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-6">
+                    Dataset Career Level
+                </div>
+                <div class="col-6 text-end"> 
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div>
+                <table id="datatableDefault" class="table  ">
+                    <thead class=" ">
+                        <tr>                                                  
+                            <th class="text-center" width="10%">ID</th>          
+                            <th class="text-center">Nama</th>          
+                        </tr> 
+                    </thead>
+                    <tbody>
+
+                        {{ range .Data }}
+                            <tr>
+                                <td class="text-center"> 
+                                    {{ .ID  }} 
+                                </td>
+                                <td class="text-center">   
+                                        {{ .Nama  }}  
+                                </td> 
+                            </tr>
+                        {{ end }}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

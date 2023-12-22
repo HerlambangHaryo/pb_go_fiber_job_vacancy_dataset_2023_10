@@ -81,6 +81,32 @@ package models
     //     return nil
     // }
 
+    // func InsertData(db *gorm.DB, name string) error {
+    //     query := "INSERT INTO dataset_jobtitles (name) VALUES (?)"
+    //     if err := db.Exec(query, name).Error; err != nil {
+    //         return err
+    //     }
+    //     return nil
+    // }
+
+	func (j *DatasetJobtitle) InsertNama(val string) error {
+		// Find all job titles with the given ID 
+        query := "INSERT INTO dataset_jobtitle (nama) VALUES (?)"
+        if err := database.DB.Exec(query, val).Error; err != nil {
+            return err
+        }
+        return nil
+	}
+
+	func (j *DatasetJobtitle) InsertName(val string) error {
+		// Find all job titles with the given ID 
+        query := "INSERT INTO dataset_jobtitle (name) VALUES (?)"
+        if err := database.DB.Exec(query, val).Error; err != nil {
+            return err
+        }
+        return nil
+	}
+
 	func (j *DatasetJobtitle) UpdateDatasetJobtitle(id uint, columnName string, newValue interface{}) error {
 		// Find all job titles with the given ID
 		var jobtitles []DatasetJobtitle

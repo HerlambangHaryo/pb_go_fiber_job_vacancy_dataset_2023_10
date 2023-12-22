@@ -1,0 +1,47 @@
+<div class="row mb-4">
+    <div class="col-12 text-center">
+        <div class="btn-group">
+            <a
+                href="/DatasetCareerLevel"
+                class="btn btn-sm btn-secondary">  
+                Dataset CareerLevel  
+            </a>  
+        </div>
+    </div>
+</div>
+ 
+
+<div id="datatable" class="mb-5">
+    <div class="card">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-6">
+                    Data GetJobFunctionValue
+                </div>
+                <div class="col-6 text-end"> 
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div>
+                <table id="datatableDefault" class="table  ">
+                    <thead class=" ">
+                        <tr>                                               
+                            <th class="text-center">Name</th>         
+                        </tr> 
+                    </thead>
+                    <tbody>
+
+                        {{ range .Data }}
+                            <tr> 
+                                <td class="text-center"> 
+                                    {{ .Name  }} 
+                                </td> 
+                            </tr>
+                        {{ end }}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
